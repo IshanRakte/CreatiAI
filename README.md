@@ -1,23 +1,22 @@
 <p align="center">
-<img src="https://github.com/IshanRakte/CreatiAI/assets/109139737/6571df59-a23c-479d-b4bf-d1c33f7aa6ec" width = "656" height = "356" class="center">
+<img src="https://github.com/IshanRakte/CreatiAI/assets/78254476/edc74195-51a1-42fc-a6d1-643ae5fe958e" width = "656" height = "356" class="center">
 </p>
 <h1 align="center">CreatiAI</h1>
 
 <p align="center">The inspiration for "CreatiAI" arose from the booming NFT market's potential and the advancements in AI technologies. The project aimed to simplify NFT creation for artists and collectors, harnessing AI's ability to generate unique digital artworks. By combining the popularity of NFTs with the creative power of AI, CreatiAI sought to revolutionize the digital art landscape and make it more accessible to a broader audience.
  </p>
 
-## 📱 Screenshots 
-
+## 📱 Screenshots
 
 <table>
   <tr>
-    <td><img src = "https://github.com/IshanRakte/CreatiAI/assets/109139737/6a92bcea-c7d5-421f-a5d9-a3cf0247fe34"  width = "770" height = "420"></td>
+    <td><img src = "https://github.com/IshanRakte/CreatiAI/assets/78254476/95f2324a-92a7-4a5c-ae3c-d154957d1d3d"  width = "770" height = "420"></td>
   </tr>
 
 </table>
 <table>
   <tr>
-    <td><img src = "https://github.com/IshanRakte/CreatiAI/assets/109139737/67336916-c4f2-4b2d-85b9-99ad701076d6"  width = "770" height = "420"></td>
+    <td><img src = "https://github.com/IshanRakte/CreatiAI/assets/78254476/af63f1db-6c49-4023-90e8-a32026545c91"  width = "770" height = "420"></td>
   </tr>
 </table>
 
