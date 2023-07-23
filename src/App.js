@@ -18,6 +18,7 @@ function App() {
   const [provider, setProvider] = useState(null)
   const [account, setAccount] = useState(null)
   const [image, setImage] = useState(null)
+  const [nft, setNFT] = useState(null)
   const [name, setName] = useState("")
   const [description, setDescription] = useState("")
   const [url, setURL] = useState(null)
@@ -25,13 +26,18 @@ function App() {
   const loadBlockchainData = async () => {
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     setProvider(provider)
+
+    const network = await provider.getNetwork()
+
+    const nft = new ethers.Contract(config[network.chainId].nft.address, NFT, provider)
+    setNFT(nft)
   }
 
   const submitHandler = async (e) => {
     e.preventDefault()
     const imageData = await createImage()
     const url = await uploadImage(imageData)
-    console.log("url", url)
+    await mintImage(url)
   }
 
   const createImage = async () => {
@@ -78,6 +84,14 @@ function App() {
     setURL(url)
 
     return url
+  }
+
+  const mintImage = async (tokenURI) => {
+    console.log("Waiting for Mint...")
+
+    const signer = await provider.getSigner()
+    const transaction = await nft.connect(signer).mint(tokenURI, { value: ethers.utils.parseUnits("1", "ether") })
+    await transaction.wait()
   }
 
   useEffect(() => {
