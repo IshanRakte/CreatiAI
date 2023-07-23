@@ -20,6 +20,7 @@ function App() {
   const [image, setImage] = useState(null)
   const [name, setName] = useState("")
   const [description, setDescription] = useState("")
+  const [url, setURL] = useState(null)
 
   const loadBlockchainData = async () => {
     const provider = new ethers.providers.Web3Provider(window.ethereum)
@@ -29,6 +30,8 @@ function App() {
   const submitHandler = async (e) => {
     e.preventDefault()
     const imageData = await createImage()
+    const url = await uploadImage(imageData)
+    console.log("url", url)
   }
 
   const createImage = async () => {
@@ -61,6 +64,22 @@ function App() {
     return data
   }
 
+  const uploadImage = async (imageData) => {
+    console.log("Uploading Image...")
+    // Create instance to NFT.Storage
+    const nftstorage = new NFTStorage({ token: process.env.REACT_APP_NFT_STORAGE_API_KEY })
+    // Send request to store image
+    const { ipnft } = await nftstorage.store({
+      image: new File([imageData], "image.jpeg", { type: "image/jpeg" }),
+      name: name,
+      description: description,
+    })
+    const url = `https://ipfs.io/ipfs/${ipnft}/metadata.json`
+    setURL(url)
+
+    return url
+  }
+
   useEffect(() => {
     loadBlockchainData()
   }, [])
@@ -78,7 +97,7 @@ function App() {
               <img src={image} alt='AI Generated Image'/>
         </div>
         </div>
-        <p>View&nbsp;<a href='' target='_blank' rel='noreferrer'>Metadata</a> </p>
+        <p>View&nbsp;<a href={url} target='_blank' rel='noreferrer'>Metadata</a> </p>
     </div>
   );
 }
