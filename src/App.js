@@ -30,8 +30,17 @@ function App() {
   return (
     <div>
       <Navigation account={account} setAccount={setAccount} />
-      <p>Edit App.js to get started.</p>
-
+      <div className='form'>
+        <form>
+          <input type="text" placeholder="Create a name..."/>
+          <input type="text" placeholder="Create a description..."/>
+          <input type="submit" value="Create & Mint" />
+        </form>
+        <div className='image'>
+              <img src='' alt='AI Generated Image'/>
+        </div>
+        </div>
+        <p>View&nbsp;<a href='' target='_blank' rel='noreferrer'>Metadata</a> </p>
     </div>
   );
 }
